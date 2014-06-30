@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento backend layout
+ *
+ * @author Luís André Franco Marado
+ */
+-->
+<layout>
+    <adminhtml_catalog_product_supplier>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="edge_supplier/adminhtml_catalog_product_edit_tab_supplier" name="catalog.product.edit.tab.supplier"/>
+            <block type="adminhtml/widget_grid_serializer" name="supplier_grid_serializer">
+                <reference name="supplier_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>catalog.product.edit.tab.supplier</grid_block_name>
+                        <data_callback>getSelectedSupplierProducts</data_callback>
+                        <hidden_input_name>links[supplier]</hidden_input_name>
+                        <reload_param_name>products_supplier</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_catalog_product_supplier>
+    
+    <adminhtml_catalog_product_suppliergrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="edge_supplier/adminhtml_catalog_product_edit_tab_supplier" name="catalog.product.edit.tab.supplier"/>
+        </block>
+    </adminhtml_catalog_product_suppliergrid>
+    
+    <adminhtml_supplier_index>
+        <reference name="content">
+            <block type="edge_supplier/adminhtml_supplier" name="supplier" />
+        </reference>
+    </adminhtml_supplier_index>
+
+    <adminhtml_supplier_grid>
+        <block type="edge_supplier/adminhtml_supplier_grid" name="root"/>
+    </adminhtml_supplier_grid>
+    
+    <adminhtml_supplier_new>
+        <update handle="adminhtml_supplier_edit" />
+    </adminhtml_supplier_new>
+    
+    <adminhtml_supplier_edit>
+        <update handle="editor"></update>
+        <reference name="content">
+            <block type="edge_supplier/adminhtml_supplier_edit" name="supplier_edit" />
+        </reference>
+        <reference name="left">
+            <block type="edge_supplier/adminhtml_supplier_edit_tabs" name="supplier_edit_tabs">
+                <block type="edge_supplier/adminhtml_supplier_edit_tab_main" name="supplier_edit_tab_main" />
+                <block type="edge_supplier/adminhtml_supplier_edit_tab_fiscal" name="supplier_edit_tab_fiscal" />
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>supplier_edit_tab_main</block>
+                </action>
+                <action method="addTab">
+                    <name>fiscal_section</name>
+                    <block>supplier_edit_tab_fiscal</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_supplier_edit>
+    
+    <report_supplier>
+        <reference name="messages">
+            <action method="addNotice" translate="message">
+                <message>This report depends on timezone configuration. Once timezone is changed, the lifetime statistics need to be refreshed.</message>
+            </action>
+        </reference>
+    </report_supplier>
+    
+    <adminhtml_report_supplier_topsuppliers>
+        <update handle="report_supplier"/>
+        <reference name="content">
+            <block type="edge_supplier/adminhtml_report_supplier_topsuppliers" template="report/grid/container.phtml" name="edge_supplier.adminhtml.report.supplier.topsuppliers.grid.container">
+                <block type="adminhtml/store_switcher" template="report/store/switcher/enhanced.phtml" name="store.switcher">
+                    <action method="setStoreVarName"><var_name>store_ids</var_name></action>
+                </block>
+                <block type="sales/adminhtml_report_filter_form" name="grid.filter.form">
+                    <action method="setFieldVisibility">
+                        <field>report_type</field>
+                        <visibility>0</visibility>
+                    </action>
+                    <action method="setFieldVisibility">
+                        <field>show_order_statuses</field>
+                        <visibility>0</visibility>
+                    </action>
+                    <action method="setFieldVisibility">
+                        <field>order_statuses</field>
+                        <visibility>0</visibility>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </adminhtml_report_supplier_topsuppliers>
+
+    <adminhtml_report_statistics_index>
+        <remove name="sales.report.refreshstatistics" />
+        <reference name="content">
+            <block type="edge_supplier/adminhtml_report_refresh_statistics" template="report/refresh/statistics.phtml" name="edge_supplier.adminhtml.report.refresh.statistics" />
+        </reference>
+    </adminhtml_report_statistics_index>
+</layout>

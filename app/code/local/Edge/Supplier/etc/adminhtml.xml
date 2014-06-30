@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento admin config
+ *
+ * @author Magento
+ */
+-->
+<config>
+    <menu>
+        <report>
+            <children>
+                <supplier translate="title" module="edge_supplier">
+                    <title>Supplier</title>
+                    <sort_order>0</sort_order>
+                    <children>
+                        <topsuppliers translate="title" module="edge_supplier">
+                            <title>Top Suppliers</title>
+                            <action>adminhtml/report_supplier/topsuppliers</action>
+                            <sort_order>0</sort_order>
+                        </topsuppliers>
+                        <worstsuppliers translate="title" module="edge_supplier">
+                            <title>Worst Suppliers</title>
+                            <action>adminhtml/report_supplier/worstsuppliers</action>
+                            <sort_order>0</sort_order>
+                        </worstsuppliers>
+                    </children>
+                </supplier>
+            </children>
+        </report>
+        <supplier translate="title" module="edge_supplier">
+            <title>Supplier</title>
+            <sort_order>65</sort_order>
+            <children>
+                <manage translate="title" module="edge_supplier">
+                    <title>Manage Supplier</title>
+                    <action>adminhtml/supplier</action>
+                    <sort_order>50</sort_order>
+                </manage>
+            </children>
+        </supplier>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <supplier translate="title" module="edge_supplier">
+                        <title>Supplier</title>
+                        <sort_order>65</sort_order>
+                        <children>
+                            <manage translate="title">
+                                <title>Manage Supplier</title>
+                                <sort_order>0</sort_order>
+                                <children>
+                                    <save translate="title">
+                                        <title>Save Supplier</title>
+                                        <sort_order>0</sort_order>
+                                    </save>
+                                    <delete translate="title">
+                                        <title>Delete Supplier</title>
+                                        <sort_order>10</sort_order>
+                                    </delete>
+                                </children>
+                            </manage>
+                            <report translate="title">
+                                <title>Supplier Reports</title>
+                                <sort_order>1</sort_order>
+                                <children>
+                                    <topsuppliers translate="title">
+                                        <title>Top Suppliers Report</title>
+                                        <sort_order>0</sort_order>
+                                    </topsuppliers>
+                                    <worstsuppliers translate="title">
+                                        <title>Worst Suppliers Report</title>
+                                        <sort_order>10</sort_order>
+                                    </worstsuppliers>
+                                </children>
+                            </report>
+                        </children>
+                    </supplier>
+                    <!--
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <supplier translate="title" module="edge_supplier">
+                                        <title>Supplier Management</title>
+                                    </supplier>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    -->
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

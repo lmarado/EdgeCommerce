@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module configuration
+ *
+ * @author Luís André Franco Marado
+ */
+-->
+<config>
+    
+    <modules>
+        <Edge_Reports>
+            <version>1.0.0</version>
+        </Edge_Reports>
+    </modules>
+    
+    <global>
+        <resources>
+            <supplier_setup>
+                <setup>
+                    <module>Edge_Reports</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </supplier_setup>
+        </resources>
+        
+        <models>
+            <catalog>
+                <rewrite>
+                    <product_link>Edge_Reports_Model_Catalog_Product_Link</product_link>
+                    <product>Edge_Reports_Model_Catalog_Product</product>
+                </rewrite>
+            </catalog>
+            <edge_supplier>
+                <class>Edge_Reports_Model</class>
+                <resourceModel>edge_supplier_resource</resourceModel>
+            </edge_supplier>
+            <edge_supplier_resource>
+                <class>Edge_Reports_Model_Resource</class>
+                <deprecatedNode>edge_supplier_mysql4</deprecatedNode>
+                <entities>
+                    <supplier>
+                        <table>edge_supplier</table>
+                    </supplier>
+                    <topsuppliers_aggregated_daily>
+                        <table>topsuppliers_aggregated_daily</table>
+                    </topsuppliers_aggregated_daily>
+                    <topsuppliers_aggregated_monthly>
+                        <table>topsuppliers_aggregated_monthly</table>
+                    </topsuppliers_aggregated_monthly>
+                    <topsuppliers_aggregated_yearly>
+                        <table>topsuppliers_aggregated_yearly</table>
+                    </topsuppliers_aggregated_yearly>
+                </entities>
+            </edge_supplier_resource>
+        </models>
+        
+        <helpers>
+            <edge_supplier>
+                <class>Edge_Reports_Helper</class>
+            </edge_supplier>
+        </helpers>
+        
+        <blocks>
+            <edge_supplier>
+                <class>Edge_Reports_Block</class>
+            </edge_supplier>
+            
+            <adminhtml>
+                <rewrite>
+                    <permissions_user_edit_tab_roles>Edge_Reports_Block_Adminhtml_Permissions_User_Edit_Tab_Roles</permissions_user_edit_tab_roles>
+                    <permissions_user_edit_tabs>Edge_Reports_Block_Adminhtml_Permissions_User_Edit_Tabs</permissions_user_edit_tabs>
+                    <catalog_product_edit_tab_related>Edge_Reports_Block_Adminhtml_Catalog_Product_Edit_Tab_Related</catalog_product_edit_tab_related>
+                    <catalog_product_edit_tab_upsell>Edge_Reports_Block_Adminhtml_Catalog_Product_Edit_Tab_Upsell</catalog_product_edit_tab_upsell>
+                    <catalog_product_edit_tab_crosssell>Edge_Reports_Block_Adminhtml_Catalog_Product_Edit_Tab_Crosssell</catalog_product_edit_tab_crosssell>
+                    <catalog_product_edit_tab_attributes>Edge_Reports_Block_Adminhtml_Catalog_Product_Edit_Tab_Attributes</catalog_product_edit_tab_attributes>
+                    <catalog_product_edit_tabs>Edge_Reports_Block_Adminhtml_Catalog_Product_Edit_Tabs</catalog_product_edit_tabs>
+                    <catalog_product_grid>Edge_Reports_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+                    <!--
+                    <sales_order_create_search_grid>Edge_Reports_Block_Adminhtml_Sales_Order_Create_Search_Grid</sales_order_create_search_grid>
+                    <report_refresh_statistics>Edge_Reports_Block_Adminhtml_Report_Refresh_Statistics</report_refresh_statistics>
+                    <report_refresh_statistics_grid>Edge_Reports_Block_Adminhtml_Report_Refresh_Statistics_Grid</report_refresh_statistics_grid>
+                    -->
+                </rewrite>
+            </adminhtml>
+        </blocks> 
+               
+        <events>
+            <admin_user_save_after>
+                <observers>
+                    <edge_supplier>
+                        <class>edge_supplier/observer</class>
+                        <method>afterAdminUserSave</method>
+                    </edge_supplier>
+                </observers>
+            </admin_user_save_after>
+            
+            <admin_user_delete_before>
+                <observers>
+                    <edge_supplier>
+                        <class>edge_supplier/observer</class>
+                        <method>beforeAdminUserDelete</method>
+                    </edge_supplier>
+                </observers>
+            </admin_user_delete_before>
+            
+            <catalog_product_save_before>
+                <observers>
+                    <edge_supplier>
+                        <class>edge_supplier/observer</class>
+                        <method>beforeCatalogProductSave</method>
+                    </edge_supplier>
+                </observers>
+            </catalog_product_save_before>
+            
+        </events>
+        
+    </global>
+    <!--
+    <frontend>
+        <routers>
+            <magentostudy_news>
+                <use>standard</use>
+                <args>
+                    <module>Magentostudy_News</module>
+                    <frontName>news</frontName>
+                </args>
+            </magentostudy_news>
+        </routers>
+        <layout>
+            <updates>
+                <magentostudy_news>
+                    <file>magentostudy_news.xml</file>
+                </magentostudy_news>
+            </updates>
+        </layout>
+    </frontend>
+    -->
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Edge_Reports before="Mage_Adminhtml">Edge_Reports_Adminhtml</Edge_Reports>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <edge_supplier>
+                    <file>edge_reports.xml</file>
+                </edge_supplier>
+            </updates>
+        </layout>
+    </adminhtml>
+    <!--
+    <default>
+        <news>
+            <view>
+                <enabled>1</enabled>
+                <items_per_page>20</items_per_page>
+                <days_difference>3</days_difference>
+            </view>
+        </news>
+    </default>
+    -->
+</config>
