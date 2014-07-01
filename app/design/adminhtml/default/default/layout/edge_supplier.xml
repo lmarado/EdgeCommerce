@@ -66,44 +66,4 @@
             </block>
         </reference>
     </adminhtml_supplier_edit>
-    
-    <report_supplier>
-        <reference name="messages">
-            <action method="addNotice" translate="message">
-                <message>This report depends on timezone configuration. Once timezone is changed, the lifetime statistics need to be refreshed.</message>
-            </action>
-        </reference>
-    </report_supplier>
-    
-    <adminhtml_report_supplier_topsuppliers>
-        <update handle="report_supplier"/>
-        <reference name="content">
-            <block type="edge_supplier/adminhtml_report_supplier_topsuppliers" template="report/grid/container.phtml" name="edge_supplier.adminhtml.report.supplier.topsuppliers.grid.container">
-                <block type="adminhtml/store_switcher" template="report/store/switcher/enhanced.phtml" name="store.switcher">
-                    <action method="setStoreVarName"><var_name>store_ids</var_name></action>
-                </block>
-                <block type="sales/adminhtml_report_filter_form" name="grid.filter.form">
-                    <action method="setFieldVisibility">
-                        <field>report_type</field>
-                        <visibility>0</visibility>
-                    </action>
-                    <action method="setFieldVisibility">
-                        <field>show_order_statuses</field>
-                        <visibility>0</visibility>
-                    </action>
-                    <action method="setFieldVisibility">
-                        <field>order_statuses</field>
-                        <visibility>0</visibility>
-                    </action>
-                </block>
-            </block>
-        </reference>
-    </adminhtml_report_supplier_topsuppliers>
-
-    <adminhtml_report_statistics_index>
-        <remove name="sales.report.refreshstatistics" />
-        <reference name="content">
-            <block type="edge_supplier/adminhtml_report_refresh_statistics" template="report/refresh/statistics.phtml" name="edge_supplier.adminhtml.report.refresh.statistics" />
-        </reference>
-    </adminhtml_report_statistics_index>
 </layout>

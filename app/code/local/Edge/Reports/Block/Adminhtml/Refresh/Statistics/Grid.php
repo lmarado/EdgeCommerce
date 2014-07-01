@@ -19,7 +19,7 @@ class Edge_Report_Block_Adminhtml_Refresh_Statistics_Grid extends Mage_Adminhtml
 
     protected function _getUpdatedAt($reportCode)
     {
-        $flag = Mage::getModel('edge_report/flag')->setReportFlagCode($reportCode)->loadSelf();
+        $flag = Mage::getModel('edge_reports/flag')->setReportFlagCode($reportCode)->loadSelf();
         return ($flag->hasData())
             ? Mage::app()->getLocale()->storeDate(
                 0, new Zend_Date($flag->getLastUpdate(), Varien_Date::DATETIME_INTERNAL_FORMAT), true

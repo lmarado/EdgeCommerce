@@ -1,6 +1,6 @@
 <?php
 
-class Edge_Report_Adminhtml_StatisticsController extends Mage_Adminhtml_Controller_Action {
+class Edge_Reports_Adminhtml_Report_StatisticsController extends Mage_Adminhtml_Controller_Action {
     /**
      * Admin session model
      *
@@ -65,15 +65,15 @@ class Edge_Report_Adminhtml_StatisticsController extends Mage_Adminhtml_Controll
         }
 
         $aliases = array(
-            'sales'       => 'sales/report_order',
-            'tax'         => 'tax/report_tax',
-            'shipping'    => 'sales/report_shipping',
-            'invoiced'    => 'sales/report_invoiced',
-            'refunded'    => 'sales/report_refunded',
-            'coupons'     => 'salesrule/report_rule',
-            'bestsellers' => 'sales/report_bestsellers',
-            'viewed'      => 'reports/report_product_viewed',
-            'topsellers'  => 'edge_report/report_topsuppliers',
+            'sales'        => 'sales/report_order',
+            'tax'          => 'tax/report_tax',
+            'shipping'     => 'sales/report_shipping',
+            'invoiced'     => 'sales/report_invoiced',
+            'refunded'     => 'sales/report_refunded',
+            'coupons'      => 'salesrule/report_rule',
+            'bestsellers'  => 'sales/report_bestsellers',
+            'viewed'       => 'reports/report_product_viewed',
+            'topsuppliers' => 'edge_reports/report_topsuppliers',
         );
         $out = array();
         foreach ($codes as $code) {

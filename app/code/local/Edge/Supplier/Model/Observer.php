@@ -27,8 +27,8 @@ class Edge_Supplier_Model_Observer
                                  'created_at' => Varien_Date::now());
                 $model->setData($dataRow)->setOrigData()->save();
                 
-                //$this->addAttributeOption('product_supplier', $observer->getEvent()->getObject()->getUsername());
-                //$this->addAttributeOption('suppliers', $observer->getEvent()->getObject()->getUsername());
+                $this->addAttributeOption('product_supplier', $observer->getEvent()->getObject()->getUsername());
+                $this->addAttributeOption('suppliers', $observer->getEvent()->getObject()->getUsername());
             }
         }else{
             if($collection->getId()){
@@ -41,11 +41,6 @@ class Edge_Supplier_Model_Observer
     public function beforeAdminUserDelete(Varien_Event_Observer $observer) {
         $model = Mage::getModel('edge_supplier/supplier');
         $model->load($observer->getEvent()->getObject()->getUserId())->delete();
-    }
-    
-    public function beforeSalesOrderSave(Varien_Event_Observer $observer) {
-        $order = $observer->getEvent()->getOrder();
-        Mage::log($order, null, 'edge.log');
     }
     
     /*
@@ -204,7 +199,8 @@ class Edge_Supplier_Model_Observer
         $attribute->setData('option',$result);
         $attribute->save(); 
         
-        return $this->getAttributeOptionValue($arg_attribute, $arg_value); }
+        return $this->getAttributeOptionValue($arg_attribute, $arg_value); 
+    }
 
     /*
     private function duplicateProduct($product, $supplier){

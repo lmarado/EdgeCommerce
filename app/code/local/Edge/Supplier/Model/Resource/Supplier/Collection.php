@@ -4,7 +4,7 @@
  *
  * @author Luís André Franco Marado
  */
-class Edge_Supplier_Model_Resource_Seller_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract
+class Edge_Supplier_Model_Resource_Supplier_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract
 {
     /**
      * Define collection model

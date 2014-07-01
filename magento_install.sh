@@ -17,6 +17,7 @@ sudo apt-get update
 sudo apt-get install apache2
 sudo apt-get install php5 php5-curl php5-gd php5-mcrypt php5-mysql
 sudo apt-get install mysql-server
+sudo apt-get install mysql-workbench
 
 echo "Adding user permissions"
 

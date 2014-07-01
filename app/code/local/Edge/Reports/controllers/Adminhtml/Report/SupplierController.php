@@ -4,7 +4,7 @@
  *
  * @author Luís André Franco Marado
  */
-class Edge_Report_Adminhtml_SupplierController extends Mage_Adminhtml_Controller_Report_Abstract
+class Edge_Reports_Adminhtml_Report_SupplierController extends Mage_Adminhtml_Controller_Report_Abstract
 {
     /**
      * Add report/sales breadcrumbs
@@ -14,7 +14,7 @@ class Edge_Report_Adminhtml_SupplierController extends Mage_Adminhtml_Controller
     public function _initAction()
     {
         parent::_initAction();
-        $this->_addBreadcrumb(Mage::helper('edge_report')->__('Supplier'), Mage::helper('edge_report')->__('Supplier'));
+        $this->_addBreadcrumb(Mage::helper('edge_reports')->__('Supplier'), Mage::helper('edge_reports')->__('Supplier'));
         return $this;
     }
     
@@ -24,7 +24,7 @@ class Edge_Report_Adminhtml_SupplierController extends Mage_Adminhtml_Controller
     public function topsuppliersAction() {
         $this->_title($this->__('Reports'))->_title($this->__('Supplier'))->_title($this->__('Top Suppliers'));
 
-        $this->_showLastExecutionTime(Edge_Reports_Model_Flag::REPORT_TOPSELLERS_FLAG_CODE, 'topsuppliers');
+        $this->_showLastExecutionTime(Edge_Reports_Model_Flag::REPORT_TOPSUPPLIERS_FLAG_CODE, 'topsuppliers');
 
         $this->_initAction()
             ->_setActiveMenu('report/supplier/topsuppliers')
@@ -47,7 +47,7 @@ class Edge_Report_Adminhtml_SupplierController extends Mage_Adminhtml_Controller
     public function exportTopsuppliersCsvAction()
     {
         $fileName   = 'topsuppliers.csv';
-        $grid       = $this->getLayout()->createBlock('edge_report/adminhtml_supplier_topsuppliers_grid');
+        $grid       = $this->getLayout()->createBlock('edge_reports/adminhtml_supplier_topsuppliers_grid');
         $this->_initReportAction($grid);
         $this->_prepareDownloadResponse($fileName, $grid->getCsvFile());
     }
@@ -58,7 +58,7 @@ class Edge_Report_Adminhtml_SupplierController extends Mage_Adminhtml_Controller
     public function exportTopsuppliersExcelAction()
     {
         $fileName   = 'topsuppliers.xml';
-        $grid       = $this->getLayout()->createBlock('edge_report/adminhtml_supplier_topsuppliers_grid');
+        $grid       = $this->getLayout()->createBlock('edge_reports/adminhtml_supplier_topsuppliers_grid');
         $this->_initReportAction($grid);
         $this->_prepareDownloadResponse($fileName, $grid->getExcelFile($fileName));
     }

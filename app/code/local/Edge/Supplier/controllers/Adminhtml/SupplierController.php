@@ -54,7 +54,7 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
              ->_title($this->__('Manage Supplier'));
         
         // 1. instance news model
-        /* @var $model Magentostudy_News_Model_Item */
+        /* @var $model Edge_Supplier_Model_Item */
         $model = Mage::getModel('edge_supplier/supplier');
         
         // 2. if exists id, check it and load data
@@ -100,7 +100,7 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
         if ($data) {
             $data = $this->_filterPostData($data);
             // init model and set data
-            /* @var $model Magentostudy_News_Model_Item */
+            /* @var $model Edge_Supplier_Model_Item */
             $model = Mage::getModel('edge_supplier/supplier');
 
             // if news item exists, try to load it
