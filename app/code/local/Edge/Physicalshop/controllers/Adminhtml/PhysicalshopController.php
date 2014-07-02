@@ -4,7 +4,7 @@
  *
  * @author Luís André Franco Marado
  */
-class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controller_Action
+class Edge_Physicalshop_Adminhtml_PhysicalshopController extends Mage_Adminhtml_Controller_Action
 {
     /**
      * Init actions
@@ -14,14 +14,14 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
     protected function _initAction() {
         // load layout, set active menu and breadcrumbs
         $this->loadLayout()
-            ->_setActiveMenu('supplier/manage')
+            ->_setActiveMenu('physicalshop/manage')
             ->_addBreadcrumb(
-                  Mage::helper('edge_supplier')->__('Supplier'),
-                  Mage::helper('edge_supplier')->__('Supplier')
+                  Mage::helper('edge_physicalshop')->__('Physical Shop'),
+                  Mage::helper('edge_physicalshop')->__('Physical Shop')
               )
             ->_addBreadcrumb(
-                  Mage::helper('edge_supplier')->__('Manage Supplier'),
-                  Mage::helper('edge_supplier')->__('Manage Supplier')
+                  Mage::helper('edge_physicalshop')->__('Manage Physical Shop'),
+                  Mage::helper('edge_physicalshop')->__('Manage Physical Shop')
               );
         return $this;
     }
@@ -30,8 +30,8 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
      * Index action
      */
     public function indexAction() {
-        $this->_title($this->__('Supplier'))
-             ->_title($this->__('Manage Supplier'));
+        $this->_title($this->__('Physical Shop'))
+             ->_title($this->__('Manage Physical Shop'));
 
         $this->_initAction();
         $this->renderLayout();
@@ -50,12 +50,12 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
      * Edit Supplier item
      */
     public function editAction() {
-        $this->_title($this->__('Supplier'))
-             ->_title($this->__('Manage Supplier'));
+        $this->_title($this->__('Physical Shop'))
+             ->_title($this->__('Manage Physical Shop'));
         
         // 1. instance news model
         /* @var $model Edge_Supplier_Model_Item */
-        $model = Mage::getModel('edge_supplier/supplier');
+        $model = Mage::getModel('edge_physicalshop/physicalshop');
         
         // 2. if exists id, check it and load data
         $supplierId = $this->getRequest()->getParam('id');
@@ -64,16 +64,16 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
             
             if (!$model->getId()) {
                 $this->_getSession()->addError(
-                    Mage::helper('edge_supplier')->__('Supplier item does not exist.')
+                    Mage::helper('edge_physicalshop')->__('Physical Shop item does not exist.')
                 );
                 return $this->_redirect('*/*/');
             }
             // prepare title
             $this->_title($model->getSocialDesignation());
-            $breadCrumb = Mage::helper('edge_supplier')->__('Edit Item');
+            $breadCrumb = Mage::helper('edge_physicalshop')->__('Edit Item');
         }else{
-            $this->_title(Mage::helper('edge_supplier')->__('New Item'));
-            $breadCrumb = Mage::helper('edge_supplier')->__('New Item');
+            $this->_title(Mage::helper('edge_physicalshop')->__('New Item'));
+            $breadCrumb = Mage::helper('edge_physicalshop')->__('New Item');
         }
         // Init breadcrumbs
         $this->_initAction()->_addBreadcrumb($breadCrumb, $breadCrumb);
@@ -83,7 +83,7 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
             $model->addData($data);
         }
         // 4. Register model to use later in blocks
-        Mage::register('supplier_item', $model);
+        Mage::register('physicalshop_item', $model);
         // 5. render layout
         $this->renderLayout();
     }
@@ -101,28 +101,28 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
             $data = $this->_filterPostData($data);
             // init model and set data
             /* @var $model Edge_Supplier_Model_Item */
-            $model = Mage::getModel('edge_supplier/supplier');
+            $model = Mage::getModel('edge_physicalshop/physicalshop');
 
             // if news item exists, try to load it
-            $supplierId = $this->getRequest()->getParam('supplier_id');
-            if ($supplierId) {
-                $model->load($supplierId);
+            $physicalshopId = $this->getRequest()->getParam('physicalshop_id');
+            if ($physicalshopId) {
+                $model->load($physicalshopId);
             }
             $model->addData($data);
 
             try {
                 $hasError = false;
                 
-                Mage::dispatchEvent('edge_supplier_before_save', array('page' => $model, 'request' => $this->getRequest()));
+                Mage::dispatchEvent('edge_physicalshop_before_save', array('page' => $model, 'request' => $this->getRequest()));
                 
                 // save the data
                 $model->save();
                 
-                Mage::dispatchEvent('edge_supplier_after_save', array('page' => $model, 'request' => $this->getRequest()));
+                Mage::dispatchEvent('edge_physicalshop_after_save', array('page' => $model, 'request' => $this->getRequest()));
 
                 // display success message
                 $this->_getSession()->addSuccess(
-                    Mage::helper('edge_supplier')->__('The supplier item has been saved.')
+                    Mage::helper('edge_physicalshop')->__('The Physical Shop item has been saved.')
                 );
 
                 // check if 'Save and Continue'
@@ -136,7 +136,7 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
             } catch (Exception $e) {
                 $hasError = true;
                 $this->_getSession()->addException($e,
-                    Mage::helper('edge_supplier')->__('An error occurred while saving the supplier item.')
+                    Mage::helper('edge_physicalshop')->__('An error occurred while saving the Physical Shop item.')
                 );
             }
 
@@ -162,22 +162,22 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
             try {
                 // init model and delete
                 /** @var $model Edge_Supplier_Model_Item */
-                $model = Mage::getModel('edge_supplier/supplier');
+                $model = Mage::getModel('edge_physicalshop/physicalshop');
                 $model->load($itemId);
                 if (!$model->getId()) {
-                    Mage::throwException(Mage::helper('edge_supplier')->__('Unable to find a supplier item.'));
+                    Mage::throwException(Mage::helper('edge_physicalshop')->__('Unable to find a Physical Shop item.'));
                 }
                 $model->delete();
 
                 // display success message
                 $this->_getSession()->addSuccess(
-                    Mage::helper('edge_supplier')->__('The supplier item has been deleted.')
+                    Mage::helper('edge_physicalshop')->__('The Physical Shop item has been deleted.')
                 );
             } catch (Mage_Core_Exception $e) {
                 $this->_getSession()->addError($e->getMessage());
             } catch (Exception $e) {
                 $this->_getSession()->addException($e,
-                    Mage::helper('edge_supplier')->__('An error occurred while deleting the supplier item.')
+                    Mage::helper('edge_physicalshop')->__('An error occurred while deleting the Physical Shop item.')
                 );
             }
         }
@@ -195,13 +195,13 @@ class Edge_Supplier_Adminhtml_SupplierController extends Mage_Adminhtml_Controll
         switch ($this->getRequest()->getActionName()) {
             case 'new':
             case 'save':
-                return Mage::getSingleton('admin/session')->isAllowed('supplier/manage/save');
+                return Mage::getSingleton('admin/session')->isAllowed('physicalshop/manage/save');
                 break;
             case 'delete':
-                return Mage::getSingleton('admin/session')->isAllowed('supplier/manage/delete');
+                return Mage::getSingleton('admin/session')->isAllowed('physicalshop/manage/delete');
                 break;
             default:
-                return Mage::getSingleton('admin/session')->isAllowed('supplier/manage');
+                return Mage::getSingleton('admin/session')->isAllowed('physicalshop/manage');
                 break;
         }
     }

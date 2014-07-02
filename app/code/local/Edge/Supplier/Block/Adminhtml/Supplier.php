@@ -1,6 +1,6 @@
 <?php
 /**
- * Seller List admin grid container
+ * Supplier List admin grid container
  *
  * @author Luís André Franco Marado
  */

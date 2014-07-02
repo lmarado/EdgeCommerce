@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento admin config
+ *
+ * @author Magento
+ */
+-->
+<config>
+    <menu>
+        <physicalshop translate="title" module="edge_physicalshop">
+            <title>Physical Shop</title>
+            <sort_order>65</sort_order>
+            <children>
+                <manage translate="title" module="edge_physicalshop">
+                    <title>Manage Physical Shop</title>
+                    <action>adminhtml/physicalshop</action>
+                    <sort_order>50</sort_order>
+                </manage>
+            </children>
+        </physicalshop>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <physicalshop translate="title" module="edge_physicalshop">
+                        <title>Physical Shop</title>
+                        <sort_order>65</sort_order>
+                        <children>
+                            <manage translate="title">
+                                <title>Manage Physical Shop</title>
+                                <sort_order>0</sort_order>
+                                <children>
+                                    <save translate="title">
+                                        <title>Save Physical Shop</title>
+                                        <sort_order>0</sort_order>
+                                    </save>
+                                    <delete translate="title">
+                                        <title>Delete Physical Shop</title>
+                                        <sort_order>10</sort_order>
+                                    </delete>
+                                </children>
+                            </manage>
+                        </children>
+                    </physicalshop>
+                    <!--
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <supplier translate="title" module="edge_supplier">
+                                        <title>Supplier Management</title>
+                                    </supplier>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    -->
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

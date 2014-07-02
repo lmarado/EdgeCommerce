@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module configuration
+ *
+ * @author Luís André Franco Marado
+ */
+-->
+<config>
+    
+    <modules>
+        <Edge_Physicalshop>
+            <version>1.0.0</version>
+        </Edge_Physicalshop>
+    </modules>
+    
+    <global>
+        <resources>
+            <physical_shop_setup>
+                <setup>
+                    <module>Edge_Physicalshop</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </physical_shop_setup>
+        </resources>
+        
+        <models>
+            <edge_physicalshop>
+                <class>Edge_Physicalshop_Model</class>
+                <resourceModel>edge_physicalshop_resource</resourceModel>
+            </edge_physicalshop>
+            <edge_physicalshop_resource>
+                <class>Edge_Physicalshop_Model_Resource</class>
+                <deprecatedNode>edge_physicalshop_mysql4</deprecatedNode>
+                <entities>
+                    <physicalshop>
+                        <table>edge_physicalshop</table>
+                    </physicalshop>
+                </entities>
+            </edge_physicalshop_resource>
+        </models>
+        
+        <helpers>
+            <edge_physicalshop>
+                <class>Edge_Physicalshop_Helper</class>
+            </edge_physicalshop>
+        </helpers>
+        
+        <blocks>
+            <edge_physicalshop>
+                <class>Edge_Physicalshop_Block</class>
+            </edge_physicalshop>
+        </blocks>
+        
+    </global>
+    
+    <frontend>
+        <routers>
+            <edge_physicalshop>
+                <use>standard</use>
+                <args>
+                    <module>Edge_Physicalshop</module>
+                    <frontName>physicalshop</frontName>
+                </args>
+            </edge_physicalshop>
+        </routers>
+        <layout>
+            <updates>
+                <edge_physicalshop>
+                    <file>edge_physicalshop.xml</file>
+                </edge_physicalshop>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Edge_Physicalshop before="Mage_Adminhtml">Edge_Physicalshop_Adminhtml</Edge_Physicalshop>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <edge_physicalshop>
+                    <file>edge_physicalshop.xml</file>
+                </edge_physicalshop>
+            </updates>
+        </layout>
+    </adminhtml>
+    <!--
+    <default>
+        <news>
+            <view>
+                <enabled>1</enabled>
+                <items_per_page>20</items_per_page>
+                <days_difference>3</days_difference>
+            </view>
+        </news>
+    </default>
+    -->
+</config>
