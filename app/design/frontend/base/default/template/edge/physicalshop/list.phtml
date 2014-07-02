@@ -1,0 +1,34 @@
+<?php
+/**
+ * Physical Shop template for items list
+ *
+ * @author Magento
+ */
+
+/**
+ * @var $this Edge_Physicalshop_Block_List
+ * @see Edge_Physicalshop_Block_List
+ */
+?>
+<div id="physicalshop_list_messages"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="page-title">
+    <h1><?php echo Mage::helper('edge_physicalshop')->__('Physical Shop News') ?></h1>
+</div>
+
+<div class="physicalshop_list_view">
+    <?php foreach ($this->getCollection() as $physicalshopItem): ?>
+        <div id="item_<?php echo $physicalshopItem->getId() ?>" class="physicalshop_list_item">
+            <h2>
+                <a href="<?php echo $this->getItemUrl($physicalshopItem) ?>">
+                    <?php echo $this->escapeHtml($physicalshopItem->getTitle()) ?>
+                </a>
+            </h2>
+            <div class="physicalshop_item_subtitle">
+                <?php echo $this->formatDate($newsItem->getTimePublished(), 'medium') ?> |
+                <?php echo $this->escapeHtml($newsItem->getAuthor()) ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<?php echo $this->getPager() ?>

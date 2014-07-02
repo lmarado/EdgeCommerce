@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento backend layout
+ *
+ * @author Luís André Franco Marado
+ */
+-->
+<layout>
+    <adminhtml_physicalshop_index>
+        <reference name="content">
+            <block type="edge_physicalshop/adminhtml_physicalshop" name="physicalshop" />
+        </reference>
+    </adminhtml_physicalshop_index>
+
+    <adminhtml_physicalshop_grid>
+        <block type="edge_physicalshop/adminhtml_physicalshop_grid" name="root"/>
+    </adminhtml_physicalshop_grid>
+    
+    <adminhtml_physicalshop_new>
+        <update handle="adminhtml_physicalshop_edit" />
+    </adminhtml_physicalshop_new>
+    
+    <adminhtml_physicalshop_edit>
+        <update handle="editor"></update>
+        <reference name="content">
+            <block type="edge_physicalshop/adminhtml_physicalshop_edit" name="physicalshop_edit" />
+        </reference>
+        <reference name="left">
+            <block type="edge_physicalshop/adminhtml_physicalshop_edit_tabs" name="physicalshop_edit_tabs">
+                <block type="edge_physicalshop/adminhtml_physicalshop_edit_tab_main" name="physicalshop_edit_tab_main" />
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>physicalshop_edit_tab_main</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_physicalshop_edit>
+</layout>

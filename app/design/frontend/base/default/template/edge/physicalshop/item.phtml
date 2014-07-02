@@ -1,0 +1,37 @@
+<?php
+/**
+ * Physical Shop template for separate item
+ *
+ * @author Magento
+ */
+
+/**
+ * @var $this Edge_Physicalshop_Block_Item
+ * @see Edge_Physicalshop_Block_Item
+ */
+?>
+<?php $_physicalshopItem = $this->helper('edge_physicalshop')->getPhysicalshopItemInstance(); ?>
+<div id="physicalshop_item_messages"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+
+<div class="page-title">
+    <h1><?php echo $this->escapeHtml($_physicalshopItem->getTitle()) ?></h1>
+
+    <div class="physicalshop_item_subtitle">
+        <?php echo $this->formatDate($_physicalshopItem->getTimePublished(), Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM) ?> |
+        <?php echo $this->escapeHtml($_physicalshopItem->getAuthor()) ?>
+    </div>
+</div>
+
+<div class="physicalshop_item_view">
+    <?php if ($imageUrl = $this->getImageUrl($_physicalshopItem, 400)): ?>
+       <p><img src="<?php echo $imageUrl ?>" alt="<?php echo $this->escapeHtml($_physicalshopItem->getTitle()) ?>" /></p>
+    <?php endif; ?>
+
+    <div class="physicalshop_item_content"><?php echo $_physicalshopItem->getContent() ?></div>
+
+    <div class="pager">
+        <a href="<?php echo $this->getBackUrl() ?>">
+            <?php echo Mage::helper('edge_physicalshop')->__('Return to list') ?>
+        </a>
+    </div>
+</div>
