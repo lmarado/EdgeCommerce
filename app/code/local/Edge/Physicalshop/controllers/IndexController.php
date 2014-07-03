@@ -44,14 +44,14 @@ class Edge_Physicalshop_IndexController extends Mage_Core_Controller_Front_Actio
      */
     public function viewAction()
     {
-        $newsId = $this->getRequest()->getParam('id');
-        if (!$newsId) {
+        $physicalshopId = $this->getRequest()->getParam('id');
+        if (!$physicalshopId) {
             return $this->_forward('noRoute');
         }
         
-        /** @var $model Magentostudy_News_Model_News */
+        /** @var $model Edge_Physicalshop_Model_Physicalshop */
         $model = Mage::getModel('edge_physicalshop/physicalshop');
-        $model->load($newsId);
+        $model->load($physicalshopId);
 
         if (!$model->getId()) {
             return $this->_forward('noRoute');

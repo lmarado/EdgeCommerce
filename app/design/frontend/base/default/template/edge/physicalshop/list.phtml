@@ -10,9 +10,9 @@
  * @see Edge_Physicalshop_Block_List
  */
 ?>
-<div id="physicalshop_list_messages"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+
 <div class="page-title">
-    <h1><?php echo Mage::helper('edge_physicalshop')->__('Physical Shop News') ?></h1>
+    <h1><?php echo Mage::helper('edge_physicalshop')->__('Physical Shops') ?></h1>
 </div>
 
 <div class="physicalshop_list_view">
@@ -20,12 +20,12 @@
         <div id="item_<?php echo $physicalshopItem->getId() ?>" class="physicalshop_list_item">
             <h2>
                 <a href="<?php echo $this->getItemUrl($physicalshopItem) ?>">
-                    <?php echo $this->escapeHtml($physicalshopItem->getTitle()) ?>
+                    <?php echo $this->escapeHtml($physicalshopItem->getLocale()) ?>
                 </a>
             </h2>
             <div class="physicalshop_item_subtitle">
-                <?php echo $this->formatDate($newsItem->getTimePublished(), 'medium') ?> |
-                <?php echo $this->escapeHtml($newsItem->getAuthor()) ?>
+                <?php echo $this->escapeHtml($physicalshopItem->getCountry()) ?> |
+                <?php echo $this->escapeHtml($physicalshopItem->getLocale()) ?>
             </div>
         </div>
     <?php endforeach; ?>

@@ -10,9 +10,9 @@
     <default>
         <reference name="footer_links">
             <action method="addLink" translate="label title" module="edge_physicalshop" ifconfig="physicalshop/view/enabled">
-                <label>Physical Shop</label>
+                <label>Physical Shops</label>
                 <url>physicalshop</url>
-                <title>Physical Shop</title>
+                <title>Physical Shops</title>
                 <prepare>true</prepare>
             </action>
         </reference>
@@ -24,13 +24,13 @@
             <action method="setTemplate">
                 <template>page/2columns-right.phtml</template>
             </action>
-            <action method="setHeaderTitle" translate="title" module="magentostudy_news">
+            <action method="setHeaderTitle" translate="title" module="edge_physicalshop">
                 <title>Site Physical Shop</title>
             </action>
         </reference>
         <reference name="content">
-            <block type="edge_physicalshop/list" name="news.list" template="edge/physicalshop/list.phtml">
-                <block type="page/html_pager" name="news.list.pager" as="physicalshop_list_pager" />
+            <block type="edge_physicalshop/list" name="physicalshop.list" template="edge/physicalshop/list.phtml">
+                <block type="page/html_pager" name="physicalshop.list.pager" as="physicalshop_list_pager" />
             </block>
         </reference>
     </edge_physicalshop_index_index>
@@ -43,7 +43,7 @@
             </action>
         </reference>
         <reference name="content">
-            <block type="edge_physicalshop/item" name="news.item" template="edge/physicalshop/item.phtml" />
+            <block type="edge_physicalshop/item" name="physicalshop.item" template="edge/physicalshop/item.phtml" />
         </reference>
     </edge_physicalshop_index_view>
 </layout>

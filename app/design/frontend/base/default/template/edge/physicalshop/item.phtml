@@ -11,23 +11,41 @@
  */
 ?>
 <?php $_physicalshopItem = $this->helper('edge_physicalshop')->getPhysicalshopItemInstance(); ?>
-<div id="physicalshop_item_messages"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 
 <div class="page-title">
-    <h1><?php echo $this->escapeHtml($_physicalshopItem->getTitle()) ?></h1>
+    <h1><?php echo $this->escapeHtml($_physicalshopItem->getLocale()) ?></h1>
 
     <div class="physicalshop_item_subtitle">
-        <?php echo $this->formatDate($_physicalshopItem->getTimePublished(), Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM) ?> |
-        <?php echo $this->escapeHtml($_physicalshopItem->getAuthor()) ?>
+        <p>
+            <?php echo $this->escapeHtml($_physicalshopItem->getCountry()) ?> |
+            <?php echo $this->escapeHtml($_physicalshopItem->getLocale()) ?>
+        </p>
+        <br />
     </div>
 </div>
 
 <div class="physicalshop_item_view">
-    <?php if ($imageUrl = $this->getImageUrl($_physicalshopItem, 400)): ?>
-       <p><img src="<?php echo $imageUrl ?>" alt="<?php echo $this->escapeHtml($_physicalshopItem->getTitle()) ?>" /></p>
-    <?php endif; ?>
-
-    <div class="physicalshop_item_content"><?php echo $_physicalshopItem->getContent() ?></div>
+    <div class="physicalshop_item_content">
+        <p><?php echo $_physicalshopItem->getAddress() ?></p>
+        <p><?php echo $_physicalshopItem->getPostalCode() ?></p>
+        <br />
+        <p>
+            <b>Telephone    </b>
+            <?php echo $_physicalshopItem->getTelephone() ?>
+        </p>
+        <p>
+            <b>Free Parking </b>
+            <?php if ($_physicalshopItem->getFreeParking() == 1): ?>
+                <?php echo 'Yes'; ?>
+            <?php else: ?>
+                <?php echo 'No'; ?>
+            <?php endif; ?>
+        </p>
+        <p>
+            <b>GPS          </b>
+            <?php echo $_physicalshopItem->getGps() ?>
+        </p>
+    </div>
 
     <div class="pager">
         <a href="<?php echo $this->getBackUrl() ?>">

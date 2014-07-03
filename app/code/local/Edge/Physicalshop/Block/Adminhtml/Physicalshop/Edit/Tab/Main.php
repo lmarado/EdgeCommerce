@@ -43,7 +43,7 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Edit_Tab_Main
             'name'     => 'country',
             'label'    => Mage::helper('edge_physicalshop')->__('Country'),
             'title'    => Mage::helper('edge_physicalshop')->__('Country'),
-            'required' => false,
+            'required' => true,
             'disabled' => $isElementDisabled
         ));
         
@@ -51,7 +51,7 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Edit_Tab_Main
             'name'     => 'locale',
             'label'    => Mage::helper('edge_physicalshop')->__('Locale'),
             'title'    => Mage::helper('edge_physicalshop')->__('Locale'),
-            'required' => false,
+            'required' => true,
             'disabled' => $isElementDisabled
         ));
         
@@ -59,7 +59,7 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Edit_Tab_Main
             'name'     => 'address',
             'label'    => Mage::helper('edge_physicalshop')->__('Address'),
             'title'    => Mage::helper('edge_physicalshop')->__('Address'),
-            'required' => false,
+            'required' => true,
             'disabled' => $isElementDisabled
         ));
         
@@ -67,7 +67,7 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Edit_Tab_Main
             'name'     => 'postal_code',
             'label'    => Mage::helper('edge_physicalshop')->__('Postal Code'),
             'title'    => Mage::helper('edge_physicalshop')->__('Postal Code'),
-            'required' => false,
+            'required' => true,
             'disabled' => $isElementDisabled
         ));
         
@@ -75,6 +75,20 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Edit_Tab_Main
             'name'     => 'telephone',
             'label'    => Mage::helper('edge_physicalshop')->__('Telephone'),
             'title'    => Mage::helper('edge_physicalshop')->__('Telephone'),
+            'required' => true,
+            'disabled' => $isElementDisabled
+        ));
+        
+        $fieldset->addField('free_parking', 'select', array(
+            'name'     => 'free_parking',
+            'class'    => 'required-entry',
+            'label'    => Mage::helper('edge_physicalshop')->__('Free Parking'),
+            'title'    => Mage::helper('edge_physicalshop')->__('Free Parking'),
+            'onclick'  => '',
+            'onchange' => '',
+            'value'    => '1',
+            'values'   => array('1' => 'Yes', '2' => 'No'),
+            'tabindex' => 1,
             'required' => false,
             'disabled' => $isElementDisabled
         ));
@@ -83,7 +97,7 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Edit_Tab_Main
             'name'     => 'gps',
             'label'    => Mage::helper('edge_physicalshop')->__('GPS'),
             'title'    => Mage::helper('edge_physicalshop')->__('GPS'),
-            'required' => false,
+            'required' => true,
             'disabled' => $isElementDisabled
         ));
 

@@ -32,7 +32,7 @@ class Edge_Physicalshop_Block_List extends Mage_Core_Block_Template
     {
         if (is_null($this->_physicalshopCollection)) {
             $this->_physicalshopCollection = $this->_getCollection();
-            $this->_physicalshopCollection->prepareForList($this->getCurrentPage());
+            //$this->_physicalshopCollection->prepareForList($this->getCurrentPage());
         }
 
         return $this->_physicalshopCollection;

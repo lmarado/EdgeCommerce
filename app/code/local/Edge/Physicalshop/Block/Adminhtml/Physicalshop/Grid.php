@@ -72,6 +72,8 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Grid extends Mage_Adminhtml
         $this->addColumn('free_parking', array(
             'header'    => Mage::helper('edge_physicalshop')->__('Free Parking'),
             'index'     => 'free_parking',
+            'type'      => 'options',
+            'options'   => array('1' => 'Yes', '2' => 'No'),
         ));
         
         $this->addColumn('gps', array(

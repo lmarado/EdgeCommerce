@@ -115,26 +115,7 @@
         </events>
         
     </global>
-    <!--
-    <frontend>
-        <routers>
-            <magentostudy_news>
-                <use>standard</use>
-                <args>
-                    <module>Magentostudy_News</module>
-                    <frontName>news</frontName>
-                </args>
-            </magentostudy_news>
-        </routers>
-        <layout>
-            <updates>
-                <magentostudy_news>
-                    <file>magentostudy_news.xml</file>
-                </magentostudy_news>
-            </updates>
-        </layout>
-    </frontend>
-    -->
+    
     <admin>
         <routers>
             <adminhtml>
@@ -146,6 +127,7 @@
             </adminhtml>
         </routers>
     </admin>
+
     <adminhtml>
         <layout>
             <updates>
@@ -155,15 +137,4 @@
             </updates>
         </layout>
     </adminhtml>
-    <!--
-    <default>
-        <news>
-            <view>
-                <enabled>1</enabled>
-                <items_per_page>20</items_per_page>
-                <days_difference>3</days_difference>
-            </view>
-        </news>
-    </default>
-    -->
 </config>
