@@ -21,21 +21,13 @@ $table = $installer->getConnection()
         'nullable' => false,
         'primary'  => true,
     ), 'Entity id')
-    ->addColumn('social_designation', Varien_Db_Ddl_Table::TYPE_TEXT, 63, array(
-        'nullable' => true,
-    ), 'Social Designation')
-    ->addColumn('nif', Varien_Db_Ddl_Table::TYPE_INTEGER, 9, array(
-        'nullable' => true,
-        'default'  => null,
-    ), 'NIF')
     ->addColumn('country', Varien_Db_Ddl_Table::TYPE_TEXT, 63, array(
         'nullable' => true,
-        'default'  => null,
     ), 'Country')
-    ->addColumn('city', Varien_Db_Ddl_Table::TYPE_TEXT, 63, array(
+    ->addColumn('locale', Varien_Db_Ddl_Table::TYPE_TEXT, 63, array(
         'nullable' => true,
         'default'  => null,
-    ), 'City')
+    ), 'Locale')
     ->addColumn('address', Varien_Db_Ddl_Table::TYPE_TEXT, 63, array(
         'nullable' => true,
         'default'  => null,
@@ -44,14 +36,18 @@ $table = $installer->getConnection()
         'nullable' => true,
         'default'  => null,
     ), 'Postal Code')
+    ->addColumn('free_parking', Varien_Db_Ddl_Table::TYPE_BOOLEAN, 63, array(
+        'nullable' => true,
+        'default'  => null,
+    ), 'Free Parking')
     ->addColumn('telephone', Varien_Db_Ddl_Table::TYPE_TEXT, 63, array(
         'nullable' => true,
         'default'  => null,
     ), 'Telephone')
-    ->addColumn('mobile', Varien_Db_Ddl_Table::TYPE_TEXT, 63, array(
+    ->addColumn('gps', Varien_Db_Ddl_Table::TYPE_TEXT, 63, array(
         'nullable' => true,
         'default'  => null,
-    ), 'Mobile')
+    ), 'GPS')
     ->addColumn('created_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
         'nullable' => true,
         'default'  => null,

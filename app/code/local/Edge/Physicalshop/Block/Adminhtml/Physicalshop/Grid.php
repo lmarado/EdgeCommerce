@@ -22,7 +22,7 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Grid extends Mage_Adminhtml
     /**
      * Prepare collection for Grid
      *
-     * @return Edge_Supplier_Block_Adminhtml_Grid
+     * @return Edge_Physicalshop_Block_Adminhtml_Grid
      */
     protected function _prepareCollection()
     {
@@ -41,22 +41,42 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Grid extends Mage_Adminhtml
         $this->addColumn('physicalshop_id', array(
             'header'    => Mage::helper('edge_physicalshop')->__('ID'),
             'width'     => '50px',
-            'index'     => 'supplier_id',
+            'index'     => 'physicalshop_id',
         ));
 
-        $this->addColumn('social_designation', array(
-            'header'    => Mage::helper('edge_physicalshop')->__('Social Designation'),
-            'index'     => 'social_designation',
+        $this->addColumn('country', array(
+            'header'    => Mage::helper('edge_physicalshop')->__('Country'),
+            'index'     => 'country',
+        ));
+        
+        $this->addColumn('locale', array(
+            'header'    => Mage::helper('edge_physicalshop')->__('Locale'),
+            'index'     => 'locale',
+        ));
+
+        $this->addColumn('address', array(
+            'header'    => Mage::helper('edge_physicalshop')->__('Address'),
+            'index'     => 'address',
+        ));
+        
+        $this->addColumn('postal_code', array(
+            'header'    => Mage::helper('edge_physicalshop')->__('Postal Code'),
+            'index'     => 'postal_code',
         ));
 
         $this->addColumn('telephone', array(
             'header'    => Mage::helper('edge_physicalshop')->__('Telephone'),
             'index'     => 'telephone',
         ));
-
-        $this->addColumn('mobile', array(
-            'header'    => Mage::helper('edge_physicalshop')->__('Mobile'),
-            'index'     => 'mobile',
+        
+        $this->addColumn('free_parking', array(
+            'header'    => Mage::helper('edge_physicalshop')->__('Free Parking'),
+            'index'     => 'free_parking',
+        ));
+        
+        $this->addColumn('gps', array(
+            'header'    => Mage::helper('edge_physicalshop')->__('GPS'),
+            'index'     => 'gps',
         ));
         
         $this->addColumn('created_at', array(

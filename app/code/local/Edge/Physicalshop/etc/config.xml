@@ -16,12 +16,12 @@
     
     <global>
         <resources>
-            <physical_shop_setup>
+            <edge_physicalshop_setup>
                 <setup>
                     <module>Edge_Physicalshop</module>
                     <class>Mage_Core_Model_Resource_Setup</class>
                 </setup>
-            </physical_shop_setup>
+            </edge_physicalshop_setup>
         </resources>
         
         <models>
@@ -93,15 +93,13 @@
             </updates>
         </layout>
     </adminhtml>
-    <!--
+    
     <default>
-        <news>
+        <physicalshop>
             <view>
                 <enabled>1</enabled>
                 <items_per_page>20</items_per_page>
-                <days_difference>3</days_difference>
             </view>
-        </news>
+        </physicalshop>
     </default>
-    -->
 </config>

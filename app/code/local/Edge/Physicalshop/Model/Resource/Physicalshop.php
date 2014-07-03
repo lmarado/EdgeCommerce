@@ -12,6 +12,5 @@ class Edge_Physicalshop_Model_Resource_Physicalshop extends Mage_Core_Model_Reso
     protected function _construct()
     {
         $this->_init('edge_physicalshop/physicalshop', 'physicalshop_id');
-        $this->_isPkAutoIncrement = false;
     }
 }

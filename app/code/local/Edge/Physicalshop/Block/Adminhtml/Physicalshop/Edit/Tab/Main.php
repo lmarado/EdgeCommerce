@@ -38,7 +38,39 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Edit_Tab_Main
                 'name' => 'physicalshop_id',
             ));
         }
-
+        
+        $fieldset->addField('country', 'text', array(
+            'name'     => 'country',
+            'label'    => Mage::helper('edge_physicalshop')->__('Country'),
+            'title'    => Mage::helper('edge_physicalshop')->__('Country'),
+            'required' => false,
+            'disabled' => $isElementDisabled
+        ));
+        
+        $fieldset->addField('locale', 'text', array(
+            'name'     => 'locale',
+            'label'    => Mage::helper('edge_physicalshop')->__('Locale'),
+            'title'    => Mage::helper('edge_physicalshop')->__('Locale'),
+            'required' => false,
+            'disabled' => $isElementDisabled
+        ));
+        
+        $fieldset->addField('address', 'text', array(
+            'name'     => 'address',
+            'label'    => Mage::helper('edge_physicalshop')->__('Address'),
+            'title'    => Mage::helper('edge_physicalshop')->__('Address'),
+            'required' => false,
+            'disabled' => $isElementDisabled
+        ));
+        
+        $fieldset->addField('postal_code', 'text', array(
+            'name'     => 'postal_code',
+            'label'    => Mage::helper('edge_physicalshop')->__('Postal Code'),
+            'title'    => Mage::helper('edge_physicalshop')->__('Postal Code'),
+            'required' => false,
+            'disabled' => $isElementDisabled
+        ));
+        
         $fieldset->addField('telephone', 'text', array(
             'name'     => 'telephone',
             'label'    => Mage::helper('edge_physicalshop')->__('Telephone'),
@@ -47,10 +79,10 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Edit_Tab_Main
             'disabled' => $isElementDisabled
         ));
         
-        $fieldset->addField('mobile', 'text', array(
-            'name'     => 'mobile',
-            'label'    => Mage::helper('edge_physicalshop')->__('Mobile'),
-            'title'    => Mage::helper('edge_physicalshop')->__('Mobile'),
+        $fieldset->addField('gps', 'text', array(
+            'name'     => 'gps',
+            'label'    => Mage::helper('edge_physicalshop')->__('GPS'),
+            'title'    => Mage::helper('edge_physicalshop')->__('GPS'),
             'required' => false,
             'disabled' => $isElementDisabled
         ));

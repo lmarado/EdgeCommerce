@@ -10,7 +10,7 @@
     <menu>
         <physicalshop translate="title" module="edge_physicalshop">
             <title>Physical Shop</title>
-            <sort_order>65</sort_order>
+            <sort_order>66</sort_order>
             <children>
                 <manage translate="title" module="edge_physicalshop">
                     <title>Manage Physical Shop</title>
@@ -45,19 +45,18 @@
                             </manage>
                         </children>
                     </physicalshop>
-                    <!--
+                    
                     <system>
                         <children>
                             <config>
                                 <children>
-                                    <supplier translate="title" module="edge_supplier">
-                                        <title>Supplier Management</title>
-                                    </supplier>
+                                    <physicalshop translate="title" module="edge_physicalshop">
+                                        <title>Physical Shop Management</title>
+                                    </physicalshop>
                                 </children>
                             </config>
                         </children>
                     </system>
-                    -->
                 </children>
             </admin>
         </resources>

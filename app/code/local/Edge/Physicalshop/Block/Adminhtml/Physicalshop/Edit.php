@@ -57,7 +57,7 @@ class Edge_Physicalshop_Block_Adminhtml_Physicalshop_Edit extends Mage_Adminhtml
         $model = Mage::helper('edge_physicalshop')->getPhysicalshopItemInstance();
         if ($model->getId()) {
             return Mage::helper('edge_physicalshop')->__("Edit Physical Shop Item '%s'",
-                 $this->escapeHtml($model->getSocialDesignation()));
+                 $this->escapeHtml($model->getLocale()));
         } else {
             return Mage::helper('edge_physicalshop')->__('New Physical Shop Item');
         }

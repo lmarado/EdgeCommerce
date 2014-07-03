@@ -22,14 +22,14 @@ try {
     /**
      * Create Supplier Role and privileges
      */
-    $role = Mage::getModel("admin/roles")
+    /*$role = Mage::getModel("admin/roles")
             ->setName('Supplier')
             ->setRoleType('G')
             ->save();
     Mage::getModel("admin/rules")
             ->setRoleId($role->getId())
             ->setResources(array("admin/dashboard", "admin/sales", "admin/catalog", "admin/customer", "admin/promo", "admin/supplier", "admin/report"))
-            ->saveRel();
+            ->saveRel();*/
     /**
      * Assign Supplier Role to Sample Supplier User
      *
@@ -40,10 +40,10 @@ try {
     /**
      * Create Suppliers Catalog Product Attributes
      */
-    addAttribute('suppliers', 'multiselect' ,'Suppliers');
+    /*addAttribute('suppliers', 'multiselect' ,'Suppliers');
     addAttributeOption('suppliers', 'Admin');
     addAttribute('product_supplier', 'select' ,'Product Supplier');
-    addAttributeOption('product_supplier', 'Admin');
+    addAttributeOption('product_supplier', 'Admin');*/
     
     //insert into catalog_product_link_type(link_type_id,code) values(6,'supplier');
 } catch (Mage_Core_Exception $e) {
